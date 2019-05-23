@@ -1,13 +1,144 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: #fffccc;
+  height: 500px;
+  font-family: 'Ostrich Sans', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+@font-face {
+	font-family: 'Ostrich Sans';
+	src: local('☺'), url('ostrich-regular.ttf') format('truetype'), url('ostrich-regular.svg') format('svg');
+	font-weight: 400;
+  font-style: normal;
+}
+
+h1{
+  font-size: 50px;
+  font-weight: 500;
+  color: #555;
+  margin: 60px auto 10px 60px;
+}
+
+.tictactoe-mode {
+  position: fixed;
+  top: 220px;
+  left: -62px;;
+}
+.tictactoe-mode-btn {
+  font-size: 30px;
+  font-weight: 500;
+  display: block;
+  width: 60px;
+  height: 50px;
+  margin: 20px;
+  margin-bottom: 40px;
+  padding: 10px 20px 15px 50px;
+  background-color: #666;
+  color: #fff;
+  text-align: center;
+  border: 1px solid gray;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  outline: none;
+}
+
+.tictactoe-opr {
+  width: 340px;
+  margin: 70px auto;
+}
+
+.tictactoe-opr-btn {
+  font-size: 25px;
+  /* float: left; */
+  width: 65px;
+  height: 20px;
+  margin: 0 auto;
+  /* margin-left: 43px; */
+  /* margin-bottom: 20px; */
+  background-color: #666;
+  color: white;
+  text-align: center;
+  border: 1px solid gray;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.tictactoe-hint {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 340px;
+  height: 320px;
+  padding: 10px 5px;
+  border: 2px solid #999;
+  background-color: rgba(100,100,100,0.9);
+}
+
+.tictactoe-hint div {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  font-size: 70px;
+  color: #fffccc;
+}
+
+.tictactoe-cells-container {
+  position: relative;
+  width: 340px;
+  height: 320px;
+  margin: 50px auto;
+  padding: 20px 0 0 10px;
+  border: 2px solid #999;
+  background-color: #ffffaa;
+}
+
+.tictactoe-cell {
+  display: block;
+  font-family: sans-serif;
+  float: left;
+  width: 80px;
+  height: 80px;
+  margin: 0 0 20px 20px;
+  border: 2px solid #999;
+  color: #777;
+  text-decoration: none;
+  font-size: 60px;
+  line-height: 80px;
+  text-align: center;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .tictactoe-mode {
+    position: relative;
+    top: 0px;
+    left: auto;
+    width: 340px;
+    margin: 20px auto;
+    
+  }
+  .tictactoe-mode-btn {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 500;
+    width: 65px;
+    height: 20px;
+    margin: 0 0 20px 43px;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 20px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .tictactoe-mode-btn:hover {
+    transform: translate3d(9px,0,0);
+  }
+  .tictactoe-opr-btn:hover {
+    background-color: #333;
+    color: white;
+    box-shadow: 3px 3px 5px #555;
+  }
 }

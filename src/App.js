@@ -1,26 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ModeButtonContainer from './components/ModeContainer';
+import OperationContainer from './components/OperationContainer';
+import CellsContainer from './components/CellsContainer';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='tictactoe'>
+      <h1>Let's Play Tic-Tac-Toe</h1>
+      <ModeButtonContainer />
+      <CellsContainer />
+      <OperationContainer />
     </div>
   );
-}
+};
+
 
 export default App;
