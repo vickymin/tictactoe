@@ -11,14 +11,14 @@ const OperationButton = ({ content, onClick }) =>
   </div>;
 
 const OperationContainer = ({ 
-  player,
+  playMode,
   initOnePlayer,
   initTwoPlayers,
   closeHint
 }) => {
   
   const onClickRestart = () => {
-    player === 'one' ? initOnePlayer() : initTwoPlayers();
+    playMode === 1 ? initOnePlayer() : initTwoPlayers();
     closeHint();
   };
 
@@ -38,7 +38,7 @@ const OperationContainer = ({
 };
 
 const mapStateToProps = state => ({
-  player: state.gameInfo,
+  playMode: state.gameInfo.playMode,
 });
 
 export default connect (
