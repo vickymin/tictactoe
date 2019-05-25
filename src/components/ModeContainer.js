@@ -15,11 +15,11 @@ const ModeContainer = ({
   initTwoPlayers, 
   closeHint
 }) => {
+
   const onClickOnePlayer = () => {
     initOnePlayer();
     closeHint();
   };
-  
   const onClickTwoPlayers = () => {
     initTwoPlayers();
     closeHint();
