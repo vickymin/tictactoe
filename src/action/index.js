@@ -3,13 +3,8 @@ import {
   INIT_TWO_PLAYERS,
   SHOW_HINT, 
   CLOSE_HINT,
-  ONE_PLAYER,
   ON_CLICK_CELL,
-  CROSS_WIN,
-  CIRCLE_WIN,
-  BREAK_EVEN,
 } from '../constants/ActionTypes';
-
 
 export const initOnePlayer = () => ({
   type: INIT_ONE_PLAYER,

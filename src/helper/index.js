@@ -23,12 +23,12 @@ const checkWinPoints = (cells, direction, row, col) => {
 };
 
 // no one wins, check if the result is even
-// even not equal to zero means all cells are filled
+// 'even' not equal to zero means all cells are filled
 // so the result is even
 const evenPlay = cells => {
   let even = 1;
-  cells.forEach(cell => {
-    even = cell.reduce((acc, cur) => acc * cur, even);
+  cells.forEach(row => {
+    even = row.reduce((acc, cur) => acc * cur, even);
   });
   return even;
 };
@@ -48,6 +48,20 @@ export const checkResult = (row, col, cells) => {
     }
   }
   return false;
+};
+
+export const getComputerClickCell = cells => {
+  const emptyCell = []; // [{ row: 0, col: 0}]
+  cells.forEach((row, i) => {
+    row.forEach((cell, j)=> {
+      if (!cell) emptyCell.push({ row: i, col: j });
+    });
+  });
+  let clickCell = {};
+  if (emptyCell.length) {
+    clickCell = emptyCell[Math.floor(Math.random() * emptyCell.length)];
+  }
+  return clickCell;
 };
 
 export const getHintContent = (result, flag) => {

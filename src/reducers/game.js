@@ -8,36 +8,35 @@ import {
  *  State:
  *  @cells {Array} two dimension array
  *  @flag {Number} -1: circle, 1: cross
- * 
+ *  @playMode {Number}
  */
 const gameInfo = ( state = {}, action) => {
-  const initArr = [0, 1, 2];
-  let cells = [];
-  initArr.forEach(i => {
-    cells[i] = [];
-    initArr.forEach(j => {
-      cells[i][j] = 0;
+  let initCells = [];
+  [0, 1, 2].forEach(i => {
+    initCells[i] = [];
+    [0, 1, 2].forEach(j => {
+      initCells[i][j] = 0;
     });
+  });
+  const initialGameInfo = Object.freeze({
+    cells: initCells,
+    flag: -1, // circle first
   });
   switch (action.type) {
     case INIT_ONE_PLAYER:
       return {
-        cells,
-        flag: -1, // circle first
-        player: 'one',
-        computerArr: new Array(9).map((v, i) => i), // track the cell computer could click
+        ...initialGameInfo,
+        computerClickCell: {},
+        playMode: 1,
       };
     case INIT_TWO_PLAYERS:
       return {
-        cells,
-        flag: -1, // circle first
-        player: 'two',
+        ...initialGameInfo,
+        playMode: 2,
       };
     case ON_CLICK_CELL:
       const { row, col } = action;
-      if (!state.cells[row][col]) {
-        state.cells[row][col] = state.flag;
-      }
+      state.cells[row][col] = state.flag;
       return {
         ...state,
         flag: state.flag * -1,
